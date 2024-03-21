@@ -47,7 +47,7 @@ function googleLogin() {
     this.response;
     console.dir(this.loginFormGoogle);
     this.loginFormGoogle.dataset['client_id'] = "355085333852-8pr4q546m8hcdo2896mrc6ahq2brdaug.apps.googleusercontent.com";
-    this.loginFormGoogle.dataset['callback'] = "googleLogin.handleCredentialResponse";
+    this.loginFormGoogle.dataset['callback'] = "handleCredentialResponse";
 
 
   }
