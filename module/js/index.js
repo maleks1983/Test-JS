@@ -28,11 +28,16 @@ function logInForm() {
 
   this.builder = function builder() {
     const elementFormLogin = document.createElement('form');
-    elementFormLogin.apclassList = ('form-signin');
-    elementFormLogin.setAttribute('th:metod', 'POST');
-    elementFormLogin.setAttribute('th:href', '/login');
-    elementFormLogin.innerText = ('Login');
-    return elementFormLogin;
+    for(let el in elementFormLogin){
+      console.log(el)
+    }
+
+ 
+    // elementFormLogin.apclassList = ('form-signin');
+    // elementFormLogin.setAttribute('th:metod', 'POST');
+    // elementFormLogin.setAttribute('th:href', '/login');
+    // elementFormLogin.innerText = ('Login');
+    // return elementFormLogin;
   }
 
 
