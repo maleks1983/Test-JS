@@ -28,9 +28,7 @@ function logInForm() {
 
   this.builder = function builder() {
     const elementFormLogin = document.createElement('form');
-    for(let el in elementFormLogin){
-      console.log(el)
-    }
+
 
  
     // elementFormLogin.apclassList = ('form-signin');
@@ -61,12 +59,15 @@ function createSecretHolder(secret) {
 
 function handleCredentialResponse(response) {
   const responsePayload = decodeJwtResponse(response.credential);
+  for(let el in responsePayload){
+    console.log(el)
+  }
 
-  console.log("ID: " + responsePayload.sub);
-  console.log('Full Name: ' + responsePayload.name);
-  console.log('Given Name: ' + responsePayload.given_name);
-  console.log('Family Name: ' + responsePayload.family_name);
-  console.log("Image URL: " + responsePayload.picture);
-  console.log("Email: " + responsePayload.email);
+  // console.log("ID: " + responsePayload.sub);
+  // console.log('Full Name: ' + responsePayload.name);
+  // console.log('Given Name: ' + responsePayload.given_name);
+  // console.log('Family Name: ' + responsePayload.family_name);
+  // console.log("Image URL: " + responsePayload.picture);
+  // console.log("Email: " + responsePayload.email);
 }
 
