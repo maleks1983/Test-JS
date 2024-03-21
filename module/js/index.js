@@ -1,4 +1,5 @@
-
+this.decodeJwtResponse = null;
+this.user = ''
 
 // Функція для розкодування JWT-токену та отримання інформації про користувача
 function decodeJwtResponse(token) {
@@ -16,52 +17,20 @@ function decodeJwtResponse(token) {
   return JSON.parse(jsonPayload);
 }
 
-const elementFormLoginDiv = document.querySelector('.form-login');
-const lof = new logInForm();
-elementFormLoginDiv.addEventListener('click', function () {
-  this.append(lof.builder())
-})
 
 
-
-function logInForm() {
-
-  this.builder = function builder() {
-    const elementFormLogin = document.createElement('form');
-
-
- 
-    // elementFormLogin.apclassList = ('form-signin');
-    // elementFormLogin.setAttribute('th:metod', 'POST');
-    // elementFormLogin.setAttribute('th:href', '/login');
-    // elementFormLogin.innerText = ('Login');
-    // return elementFormLogin;
+this.userName = function userName() {
+  if (decodeJwtResponse === null) {
+    this.user = this.decodeJwtResponse.name;
+    const elenentUser = document.querySelector(".greetingUser");
+    elenentUser.innerText = "this.user";
   }
-
-
 }
-
-function createSecretHolder(secret) {
-
-  this.secret = secret;
-
-  this.setSecret = function setSecret(secret) {
-    this.secret = secret;
-  }
-
-  this.getSecret = function getSecret() {
-    return this.secret;
-  }
-
-}
-
 
 
 function handleCredentialResponse(response) {
-  const responsePayload = decodeJwtResponse(response.credential);
-  for(let el in responsePayload){
-    console.log(`${el}: ${responsePayload[el]}`)
-  }
+  this.decodeJwtResponse = decodeJwtResponse(response.credential);
+  this.userName();
 
   // console.log("ID: " + responsePayload.sub);
   // console.log('Full Name: ' + responsePayload.name);
@@ -69,5 +38,6 @@ function handleCredentialResponse(response) {
   // console.log('Family Name: ' + responsePayload.family_name);
   // console.log("Image URL: " + responsePayload.picture);
   // console.log("Email: " + responsePayload.email);
+  // console.log("UIT: " + responsePayload.jti);
 }
 
