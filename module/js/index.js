@@ -67,7 +67,7 @@ function googleLogin() {
     return JSON.parse(jsonPayload);
   }
 
-  this.handleCredentialResponse = function handleCredentialResponse(response) {
+  function handleCredentialResponse(response) {
     const responsePayload = this.decodeJwtResponse(response.credential);
     this.loggedUser.googleID = responsePayload.sub;
     this.loggedUser.name = responsePayload.given_name;
@@ -86,6 +86,3 @@ function googleLogin() {
 const gLogin = new googleLogin();
 gLogin.init();
 
-function handleCredentialResponse(response) {
-  gLogin.handleCredentialResponse(response);
-}
