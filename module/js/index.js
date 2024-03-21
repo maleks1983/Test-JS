@@ -1,4 +1,3 @@
-const user = ''
 
 // Функція для розкодування JWT-токену та отримання інформації про користувача
 function decodeJwtResponse(token) {
@@ -19,8 +18,8 @@ function decodeJwtResponse(token) {
 
 
 function userName(responsePayload) {
-  if (responsePayload === null) {
-    user = responsePayload.name;
+  console.log(responsePayload);
+  if (responsePayload !== null) {
     const elenentUser = document.querySelector(".greetingUser");
     elenentUser.innerText = responsePayload.name;
   }
