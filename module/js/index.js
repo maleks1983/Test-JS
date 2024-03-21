@@ -35,14 +35,12 @@ function createSecretHolder(secret) {
 }
 
 function handleCredentialResponse(googleUser) {
-  console.log(googleUser)
-  var profile = googleUser.getBasicProfile();
-
-  console.log('ID: ' + profile.getId());
-  console.log('Full Name: ' + profile.getName());
-  console.log('First Name: ' + profile.getGivenName());
-  console.log('Last Name: ' + profile.getFamilyName());
-  console.log('Email: ' + profile.getEmail());
-  console.log('Image URL: ' + profile.getImageUrl());
+  console.log(googleUser);
+  console.log('ID: ' + googleUser.getId());
+  console.log('Full Name: ' + googleUser.getName());
+  console.log('First Name: ' + progoogleUserfile.getGivenName());
+  console.log('Last Name: ' + googleUser.getFamilyName());
+  console.log('Email: ' + googleUser.getEmail());
+  console.log('Image URL: ' + googleUser.getImageUrl());
 }
 
