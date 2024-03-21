@@ -34,13 +34,14 @@ function createSecretHolder(secret) {
 
 }
 
-function handleCredentialResponse(googleUser) {
-  console.log(googleUser);
-  console.log('ID: ' + googleUser.getId());
-  console.log('Full Name: ' + googleUser.getName());
-  console.log('First Name: ' + progoogleUserfile.getGivenName());
-  console.log('Last Name: ' + googleUser.getFamilyName());
-  console.log('Email: ' + googleUser.getEmail());
-  console.log('Image URL: ' + googleUser.getImageUrl());
+function handleCredentialResponse(response) {
+  const responsePayload = decodeJwtResponse(response.credential);
+
+  console.log("ID: " + responsePayload.sub);
+  console.log('Full Name: ' + responsePayload.name);
+  console.log('Given Name: ' + responsePayload.given_name);
+  console.log('Family Name: ' + responsePayload.family_name);
+  console.log("Image URL: " + responsePayload.picture);
+  console.log("Email: " + responsePayload.email);
 }
 
