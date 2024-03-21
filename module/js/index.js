@@ -34,5 +34,14 @@ function createSecretHolder(secret) {
 
 }
 
+function handleCredentialResponse(response) {
+  var profile = response.getBasicProfile();
 
+  console.log('ID: ' + profile.getId());
+  console.log('Full Name: ' + profile.getName());
+  console.log('First Name: ' + profile.getGivenName());
+  console.log('Last Name: ' + profile.getFamilyName());
+  console.log('Email: ' + profile.getEmail());
+  console.log('Image URL: ' + profile.getImageUrl());
+}
 
