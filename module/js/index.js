@@ -17,11 +17,10 @@ function decodeJwtResponse(token) {
 
 
 
-function userName(loggedUser) {
-  console.log(loggedUser);
-  if (loggedUser.name !== null) {
+function userName() {
+  if (this.loggedUser.name !== null) {
     const elenentUser = document.querySelector(".greetingUser");
-    elenentUser.innerText = loggedUser.name;
+    elenentUser.innerText = this.loggedUser.name;
   }
 }
 
@@ -81,7 +80,7 @@ function googleLogin() {
     this.loggedUser.email = responsePayload.email;
     this.loggedUser.UIT = responsePayload.jti;
 
-    userName(loggedUser);
+    userName();
   }
 
 
