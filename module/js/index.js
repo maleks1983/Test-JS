@@ -17,12 +17,6 @@ function decodeJwtResponse(token) {
 
 
 
-function userName() {
-  if (this.loggedUser.name !== null) {
-    const elenentUser = document.querySelector(".greetingUser");
-    elenentUser.innerText = this.loggedUser.name;
-  }
-}
 
 
 function handleCredentialResponse(response) {
@@ -80,8 +74,11 @@ function googleLogin() {
     this.loggedUser.email = responsePayload.email;
     this.loggedUser.UIT = responsePayload.jti;
 
-    userName();
+    const elenentUser = document.querySelector(".greetingUser");
+      elenentUser.innerText = this.loggedUser.name;
   }
+  
+  
 
 
 }
