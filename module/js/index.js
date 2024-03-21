@@ -1,4 +1,3 @@
-const jwtResponse = null;
 const user = ''
 
 // Функція для розкодування JWT-токену та отримання інформації про користувача
@@ -19,18 +18,18 @@ function decodeJwtResponse(token) {
 
 
 
-function userName() {
-  if (jwtResponse === null) {
-    user = tjwtResponse.name;
+function userName(responsePayload) {
+  if (responsePayload === null) {
+    user = responsePayload.name;
     const elenentUser = document.querySelector(".greetingUser");
-    elenentUser.innerText = this.user;
+    elenentUser.innerText = responsePayload.name;
   }
 }
 
 
 function handleCredentialResponse(response) {
-  jwtResponse = decodeJwtResponse(response.credential);
-  userName();
+  const responsePayload = decodeJwtResponse(response.credential);
+  userName(responsePayload);
 
   // console.log("ID: " + responsePayload.sub);
   // console.log('Full Name: ' + responsePayload.name);
