@@ -47,7 +47,7 @@ function googleLogin() {
     this.response;
     console.dir(this.loginFormGoogle);
     this.loginFormGoogle.dataset['client_id'] = "355085333852-8pr4q546m8hcdo2896mrc6ahq2brdaug.apps.googleusercontent.com";
-    this.loginFormGoogle.dataset['callback'] = function (){this.handleCredentialResponse(response)};
+    this.loginFormGoogle.dataset['callback'] = function (){handleCredentialResponse(response)};
 
 
   }
@@ -67,7 +67,7 @@ function googleLogin() {
     return JSON.parse(jsonPayload);
   }
 
-  this.handleCredentialResponse = function handleCredentialResponse(response) {
+  function handleCredentialResponse(response) {
     const responsePayload = this.decodeJwtResponse(response.credential);
     this.loggedUser.googleID = responsePayload.sub;
     this.loggedUser.name = responsePayload.given_name;
