@@ -60,7 +60,7 @@ function createSecretHolder(secret) {
 function handleCredentialResponse(response) {
   const responsePayload = decodeJwtResponse(response.credential);
   for(let el in responsePayload){
-    console.log(el)
+    console.log(`${el}: ${responsePayload[el]}`)
   }
 
   // console.log("ID: " + responsePayload.sub);
