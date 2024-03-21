@@ -17,11 +17,11 @@ function decodeJwtResponse(token) {
 
 
 
-function userName(responsePayload) {
-  console.log(responsePayload);
-  if (responsePayload !== null) {
+function userName(loggedUser) {
+  console.log(loggedUser);
+  if (loggedUser.name !== null) {
     const elenentUser = document.querySelector(".greetingUser");
-    elenentUser.innerText = responsePayload.name;
+    elenentUser.innerText = loggedUser.name;
   }
 }
 
@@ -54,9 +54,8 @@ function googleLogin() {
     this.response;
     console.dir(this.loginFormGoogle);
     this.loginFormGoogle.dataset['client_id'] = "355085333852-8pr4q546m8hcdo2896mrc6ahq2brdaug.apps.googleusercontent.com";
-    this.loginFormGoogle.dataset['callback'] = this.handleCredentialResponse(this.response);
-    // const googleSignIn = document.querySelector('.g_id_signin')
-    // googleSignIn.addEventListener('click', new googleLogin(),)
+    this.loginFormGoogle.dataset['callback'] = "handleCredentialResponse";
+
 
   }
 
@@ -82,7 +81,7 @@ function googleLogin() {
     this.loggedUser.email = responsePayload.email;
     this.loggedUser.UIT = responsePayload.jti;
 
-    userName(responsePayload);
+    userName(loggedUser);
   }
 
 
@@ -90,3 +89,7 @@ function googleLogin() {
 
 const gLogin = new googleLogin();
 gLogin.init();
+
+function handleCredentialResponse(response) {
+  gLogin.handleCredentialResponse(response);
+}
