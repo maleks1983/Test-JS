@@ -35,6 +35,7 @@ function createSecretHolder(secret) {
 }
 
 function handleCredentialResponse(response) {
+  console.log(response);
   var profile = response.getBasicProfile();
 
   console.log('ID: ' + profile.getId());
