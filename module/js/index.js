@@ -29,7 +29,7 @@ function userName() {
 
 
 function handleCredentialResponse(response) {
-  decodeJwtResponse = decodeJwtResponse(response.credential);
+  jwtResponse = decodeJwtResponse(response.credential);
   userName();
 
   // console.log("ID: " + responsePayload.sub);
