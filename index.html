@@ -6,15 +6,14 @@
 	<!-- Required meta tags -->
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-	<meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin">
 	<meta name="google-signin-client_id"
-		content="761245169657-p768p61cgco7b6fuae39cv5ieeojjn9r.apps.googleusercontent.com">
+		content="355085333852-8pr4q546m8hcdo2896mrc6ahq2brdaug.apps.googleusercontent.com">
 
 	<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="module/css/style.css">
-	<script src="https://apis.google.com/js/platform.js" async defer></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js" defer></script>
-	<script src="module/js/index.js" defer></script>
+
+	<script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
+	<script src="module/js/index.js" async defer></script>
 </head>
 
 <body>
@@ -27,8 +26,9 @@
 	</header>
 	<main>
 		<div class="container mx-auto">
-			<h1>Авторизація через Google</h1>
 			<div class="g-signin2" data-onsuccess="onSignIn"></div>
+		
+
 		</div>
 
 		<div class="container mx-auto">
