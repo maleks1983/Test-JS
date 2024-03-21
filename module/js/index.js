@@ -1,3 +1,13 @@
+import jwt from 'jsonwebtoken';
+
+// Функція для розкодування JWT-токену та отримання інформації про користувача
+function decodeJwtResponse(credential) {
+  const token = credential.id_token;
+  const decoded = jwt.decode(token);
+
+  return decoded;
+}
+
 const elementFormLoginDiv = document.querySelector('.form-login');
 const lof = new logInForm();
 elementFormLoginDiv.addEventListener('click', function () {
@@ -33,6 +43,8 @@ function createSecretHolder(secret) {
   }
 
 }
+
+
 
 function handleCredentialResponse(response) {
   const responsePayload = decodeJwtResponse(response.credential);
