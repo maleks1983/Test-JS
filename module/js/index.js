@@ -23,7 +23,7 @@ this.userName = function userName() {
   if (decodeJwtResponse === null) {
     this.user = this.decodeJwtResponse.name;
     const elenentUser = document.querySelector(".greetingUser");
-    elenentUser.innerText = "this.user";
+    elenentUser.innerText = this.user;
   }
 }
 
