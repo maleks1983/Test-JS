@@ -33,7 +33,7 @@ function handleCredentialResponse(response) {
 }
 
 function googleLogin() {
-
+  this.signIn = document.qwerySelect('.g_id_signin');
   this.loginFormGoogle = document.getElementById('g_id_onload');
   this.loggedUser = {
     googleID: '',
@@ -44,13 +44,15 @@ function googleLogin() {
 
 
   this.init = function init() {
-    this.response;
-    console.dir(this.loginFormGoogle);
+    this.signIn.addEventListener('click', this.setCallBack());
     this.loginFormGoogle.dataset['client_id'] = "355085333852-8pr4q546m8hcdo2896mrc6ahq2brdaug.apps.googleusercontent.com";
-    this.loginFormGoogle.dataset['callback'] = function (){handleCredentialResponse(response)};
+    this.loginFormGoogle.dataset['callback'] = "handleCredentialResponse";
 
 
   }
+  this.setCallBack = function setCallBack(){
+    this.loginFormGoogle.dataset['callback'] = this.handleCredentialResponse(response)};
+  };
 
   this.decodeJwtResponse = function decodeJwtResponse(token) {
     var base64Url = token.split(".")[1];
