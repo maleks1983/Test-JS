@@ -1,5 +1,5 @@
-this.decodeJwtResponse = null;
-this.user = ''
+const jwtResponse = null;
+const user = ''
 
 // Функція для розкодування JWT-токену та отримання інформації про користувача
 function decodeJwtResponse(token) {
@@ -19,9 +19,9 @@ function decodeJwtResponse(token) {
 
 
 
-this.userName = function userName() {
-  if (decodeJwtResponse === null) {
-    this.user = this.decodeJwtResponse.name;
+function userName() {
+  if (jwtResponse === null) {
+    user = tjwtResponse.name;
     const elenentUser = document.querySelector(".greetingUser");
     elenentUser.innerText = this.user;
   }
@@ -29,8 +29,8 @@ this.userName = function userName() {
 
 
 function handleCredentialResponse(response) {
-  this.decodeJwtResponse = decodeJwtResponse(response.credential);
-  this.userName();
+  decodeJwtResponse = decodeJwtResponse(response.credential);
+  userName();
 
   // console.log("ID: " + responsePayload.sub);
   // console.log('Full Name: ' + responsePayload.name);
