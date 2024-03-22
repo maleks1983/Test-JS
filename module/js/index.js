@@ -49,11 +49,13 @@ function googleLogin() {
   this.init = function init() {
     this.loginFormGoogle.dataset['client_id'] = "355085333852-8pr4q546m8hcdo2896mrc6ahq2brdaug.apps.googleusercontent.com";
     this.loginFormGoogle.dataset['callback'] = "handleCredentialResponse";
-    console.dir(this.elenentSignIn);
+    this.elenentSignI.onload(this.init());
   };
 
 
-
+  function handleCredentialResponse(response) {
+    this.handleCredentialResponse(response);
+  }
 
   this.decodeJwtResponse = function decodeJwtResponse(token) {
     var base64Url = token.split(".")[1];
@@ -75,7 +77,7 @@ function googleLogin() {
     this.loggedUser.name = responsePayload.given_name;
     this.loggedUser.email = responsePayload.email;
     this.loggedUser.UIT = responsePayload.jti;
-
+    this.elenentUser.onload
     
     this.elenentUser.innerText = this.loggedUser.name;
 
@@ -87,8 +89,5 @@ function googleLogin() {
 
 
 const gLogin = new googleLogin();
-gLogin.init();
 
-function handleCredentialResponse(response) {
-  gLogin.handleCredentialResponse(response);
-}
+
