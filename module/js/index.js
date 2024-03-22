@@ -33,7 +33,6 @@ function handleCredentialResponse(response) {
 }
 
 function googleLogin() {
-  this.signIn = document.qwerySelect('.g_id_signin');
   this.loginFormGoogle = document.getElementById('g_id_onload');
   this.loggedUser = {
     googleID: '',
