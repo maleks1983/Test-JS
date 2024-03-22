@@ -36,6 +36,8 @@ function handleCredentialResponse(response) {
 function googleLogin() {
   this.loginFormGoogle = document.getElementById('g_id_onload');
   this.elenentUser = document.querySelector(".greetingUser");
+  this.elenentSignIn = document.querySelector(".g_id_signin");
+  
   this.loggedUser = {
     googleID: '',
     name: '',
@@ -46,7 +48,8 @@ function googleLogin() {
 
   this.init = function init() {
     this.loginFormGoogle.dataset['client_id'] = "355085333852-8pr4q546m8hcdo2896mrc6ahq2brdaug.apps.googleusercontent.com";
-    this.loginFormGoogle.dataset['callback'] = this.handleCredentialResponse.bind();
+    this.loginFormGoogle.dataset['callback'] = "handleCredentialResponse";
+    console.dir(this.elenentSignIn);
   };
 
 
