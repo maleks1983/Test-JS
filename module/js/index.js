@@ -49,9 +49,7 @@ function googleLogin() {
   };
 }
 
-function handleCredentialResponse(response) {
-  gLogin.handleCredentialResponse(response);
-}
+
 
 this.decodeJwtResponse = function decodeJwtResponse(token) {
   var base64Url = token.split(".")[1];
