@@ -52,9 +52,8 @@ function googleLogin() {
 
 
   }
-  this.setCallBack = function setCallBack(){
-    this.loginFormGoogle.dataset['callback'] = this.handleCredentialResponse(response)};
-  };
+
+
 
   this.decodeJwtResponse = function decodeJwtResponse(token) {
     var base64Url = token.split(".")[1];
