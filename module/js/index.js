@@ -54,7 +54,9 @@ class GoogleLogin {
 
     this.loginFormGoogle.dataset['client_id'] = "355085333852-8pr4q546m8hcdo2896mrc6ahq2brdaug.apps.googleusercontent.com";
     // this.loginFormGoogle.dataset['callback'] = "handleCredentialResponse";
-    this.callback = this.handleCredentialResponse.bind(this, response);
+    this.loginFormGoogle.dataset['callback'] = this.handleCredentialResponse.bind(this, response);
+    
+
   }
 
 }
