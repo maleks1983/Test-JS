@@ -3,6 +3,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    position: relative;
 
 }
 
@@ -22,4 +23,19 @@ footer {
     width: 100%;
     flex: 0 0 500px;
     background-color: #303030;
+}
+
+.login__form{
+    position: absolute;
+    padding: 15px;
+    width: 30%;
+    min-height: min-content;
+    height: max-content;
+    top:25%;
+    left:50%;
+    transform: translateX(-50%);
+    border: 1px solid black;
+    border-radius: 20px;
+
+
 }
