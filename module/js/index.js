@@ -20,8 +20,9 @@ class GoogleLogin {
 
     this.rootElement = document.querySelector(selector);
     this.loginFormGoogle = this.rootElement.querySelector('#g_id_onload');
-    this.elenentUser = this.rootElement.querySelector(".greetingUser");
     this.elenentSignIn = this.rootElement.querySelector(".g_id_signin");
+    this.elenentUser = document.querySelector(".greetingUser");
+
 
     this.loggedUser = {
       googleID: '',
@@ -48,15 +49,15 @@ class GoogleLogin {
     };
 
     this.handleCredentialResponse = function (response) {
-        const responsePayload = this.decodeJwtResponse(response.credential);
+      const responsePayload = this.decodeJwtResponse(response.credential);
 
-        this.loggedUser.googleID = responsePayload.sub;
-        this.loggedUser.name = responsePayload.given_name;
-        this.loggedUser.email = responsePayload.email;
-        this.loggedUser.UIT = responsePayload.jti;
-        
-        this.elenentUser.innerText = this.loggedUser.name;
-  
+      this.loggedUser.googleID = responsePayload.sub;
+      this.loggedUser.name = responsePayload.given_name;
+      this.loggedUser.email = responsePayload.email;
+      this.loggedUser.UIT = responsePayload.jti;
+
+      this.elenentUser.innerText = this.loggedUser.name;
+
     }
 
   }
