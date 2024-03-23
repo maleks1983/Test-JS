@@ -54,8 +54,8 @@ class GoogleLogin {
 
     this.loginFormGoogle.dataset['client_id'] = "355085333852-8pr4q546m8hcdo2896mrc6ahq2brdaug.apps.googleusercontent.com";
     // this.loginFormGoogle.dataset['callback'] = "handleCredentialResponse";
-    this.loginFormGoogle.dataset['callback'] = this.handleCredentialResponse.bind(this);
-    
+    this.loginFormGoogle.dataset['callback'] = this.handleCredentialResponse.bind(this, response = null);
+
 
   }
 
@@ -78,14 +78,17 @@ GoogleLogin.prototype.decodeJwtResponse = function (token) {
 
 GoogleLogin.prototype.handleCredentialResponse = function (response) {
   console.dir(this, response);
-  const responsePayload = this.decodeJwtResponse.bind(this, response);
-  this.loggedUser.googleID = responsePayload.sub;
-  this.loggedUser.name = responsePayload.given_name;
-  this.loggedUser.email = responsePayload.email;
-  this.loggedUser.UIT = responsePayload.jti;
-  this.elenentUser.onload;
+  if (response !== null) {
+    const responsePayload = this.decodeJwtResponse.bind(this, response);
+    this.loggedUser.googleID = responsePayload.sub;
+    this.loggedUser.name = responsePayload.given_name;
+    this.loggedUser.email = responsePayload.email;
+    this.loggedUser.UIT = responsePayload.jti;
+    this.elenentUser.onload;
 
-  this.elenentUser.innerText = this.loggedUser.name;
+    this.elenentUser.innerText = this.loggedUser.name;
+  }
+
 
 
 };
