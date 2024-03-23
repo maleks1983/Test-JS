@@ -53,9 +53,13 @@ class GoogleLogin {
     };
 
     this.loginFormGoogle.dataset['client_id'] = "355085333852-8pr4q546m8hcdo2896mrc6ahq2brdaug.apps.googleusercontent.com";
-    // this.loginFormGoogle.dataset['callback'] = "handleCredentialResponse";
-    this.loginFormGoogle.dataset['callback'] = this.handleCredentialResponse.bind(this);
+    this.loginFormGoogle.dataset['callback'] = "handleCredentialResponse";
+    
 
+    function handleCredentialResponse(response) {
+      console.dir(response);
+      this.handleCredentialResponse(response);
+    }
 
   }
 
@@ -95,6 +99,4 @@ GoogleLogin.prototype.handleCredentialResponse = function (response) {
 
 const gLogin = new GoogleLogin(".container.mx-auto.form-login");
 
-// function handleCredentialResponse(response) {
-//   gLogin.prototype.handleCredentialResponse(response);
-// }
+
