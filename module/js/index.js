@@ -48,8 +48,7 @@ class GoogleLogin {
     };
 
     this.handleCredentialResponse = function (response) {
-      if (response !== null) {
-        const responsePayload = this.decodeJwtResponse(response);
+        const responsePayload = this.decodeJwtResponse(response.credential);
 
         this.loggedUser.googleID = responsePayload.sub;
         this.loggedUser.name = responsePayload.given_name;
@@ -58,7 +57,7 @@ class GoogleLogin {
         this.elenentUser.onload;
 
         this.elenentUser.innerText = this.loggedUser.name;
-      }
+    
 
     }
 
