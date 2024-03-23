@@ -54,11 +54,9 @@ class GoogleLogin {
         this.loggedUser.name = responsePayload.given_name;
         this.loggedUser.email = responsePayload.email;
         this.loggedUser.UIT = responsePayload.jti;
-        this.elenentUser.onload;
-
+        
         this.elenentUser.innerText = this.loggedUser.name;
-    
-
+  
     }
 
   }
