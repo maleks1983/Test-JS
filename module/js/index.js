@@ -42,8 +42,8 @@ class GoogleLogin {
 
     this.rootElement = document.querySelector(selector);
     this.loginFormGoogle = this.rootElement.querySelector('#g_id_onload');
-    this.elenentUser =  this.rootElement.querySelector(".greetingUser");
-    this.elenentSignIn =  this.rootElement.querySelector(".g_id_signin");
+    this.elenentUser = this.rootElement.querySelector(".greetingUser");
+    this.elenentSignIn = this.rootElement.querySelector(".g_id_signin");
 
     this.loggedUser = {
       googleID: '',
@@ -54,14 +54,12 @@ class GoogleLogin {
 
     this.loginFormGoogle.dataset['client_id'] = "355085333852-8pr4q546m8hcdo2896mrc6ahq2brdaug.apps.googleusercontent.com";
     this.loginFormGoogle.dataset['callback'] = "handleCredentialResponse";
-    this.loginFormGoogle.callback = function(){
-      console.log(this)
-    }
   }
 
 }
 
 GoogleLogin.prototype.decodeJwtResponse = function (token) {
+  console.dir(token);
   var base64Url = token.split(".")[1];
   var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
   var jsonPayload = decodeURIComponent(
@@ -76,7 +74,8 @@ GoogleLogin.prototype.decodeJwtResponse = function (token) {
 };
 
 GoogleLogin.prototype.handleCredentialResponse = function (response) {
-  const responsePayload = this.prototype.decodeJwtResponse(response);
+  console.dir(this, response);
+  const responsePayload = this.decodeJwtResponse.bind(this, response);
   this.loggedUser.googleID = responsePayload.sub;
   this.loggedUser.name = responsePayload.given_name;
   this.loggedUser.email = responsePayload.email;
@@ -90,6 +89,6 @@ GoogleLogin.prototype.handleCredentialResponse = function (response) {
 
 const gLogin = new GoogleLogin(".container.mx-auto.form-login");
 
-function handleCredentialResponse(response) {
-  gLogin.prototype.handleCredentialResponse(response);
-}
+// function handleCredentialResponse(response) {
+//   gLogin.prototype.handleCredentialResponse(response);
+// }
