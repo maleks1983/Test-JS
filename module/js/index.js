@@ -12,6 +12,7 @@
 class GoogleLogin {
 
   constructor(selector, client_id, callback) {
+
     this.props = {
       selector,
       client_id,
@@ -71,3 +72,69 @@ const gLogin = new GoogleLogin(".container.mx-auto.form-login",
 function handleCredentialResponse(response) {
   gLogin.handleCredentialResponse(response);
 }
+
+
+
+class Slider {
+
+  constructor(selector) {
+    this.rootElement = document.querySelector(selector);
+    this._state = { currentSlide: 0 };
+    this.bodyEl = this.rootElement.querySelector(".slider__body");
+    this.bodyContent = this.bodyEl.querySelectorAll(".slider__content")
+    this.controllEl = this.rootElement.querySelector(".slider__control");
+    this.timeLineEl = this.rootElement.querySelector(".slider__timeLine");
+    this.nextBtn = this.controllEl.querySelector(".next__btn");
+    this.prevBtn = this.controllEl.querySelector(".prev__btn");
+    this.init();
+    this.idAnimation = setInterval(() => { this.nextSlide() }, 5000);
+  }
+
+
+  init() {
+    if (this.nextBtn) {
+      this.nextBtn.addEventListener('click', this.nextSlide.bind(this))
+    }
+    if (this.prevBtn) {
+      this.prevBtn.addEventListener('click', this.previousSlide.bind(this))
+    }
+    this.render(this.state);
+  }
+
+  get state() {
+    return this._state.currentSlide;
+  }
+
+  set state(index) {
+    this._state.currentSlide = index;
+
+  }
+
+
+  render(index) {
+    const currentSlideEl = this.bodyContent[this.state];
+    const showSlideEL = this.bodyEl.querySelector('.slider__current');
+    showSlideEL.classList.remove('slider__current');
+    showSlideEL.style.zindex = 0
+    currentSlideEl.classList.add('slider__current');
+    currentSlideEl.style.zindex = 1;
+  }
+
+  nextSlide() {
+    this.state++;
+    this.state = this.state % this.bodyContent.length;
+    this.render(this.state);
+  }
+
+  previousSlide() {
+    this.state--;
+    if (this.state == -1) {
+      this.state = this.bodyContent.length - 1;
+    }
+    this.render(this.state);
+  }
+
+
+}
+const slider = new Slider(".slider")
+
