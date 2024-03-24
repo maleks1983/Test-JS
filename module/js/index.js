@@ -85,7 +85,6 @@ const googleLogin = new GoogleLogin(loginForm);
 
 loginForm.addEventListener('click', (event) => {
   const vrapper =  event.target.querySelector('.loggedWrapper')
-  console.log(vrapper);
   vrapper.style.display = 'block';
 })
 
